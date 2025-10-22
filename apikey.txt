@@ -1,1 +1,1 @@
-client = OpenAI(api_key="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")
+
