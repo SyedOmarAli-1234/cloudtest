@@ -8,7 +8,8 @@ import datetime
 
 
 # Define password for testing
-CORRECT_PASSWORD = "w7o5qhq88"
+# Retrieve the correct password securely from Streamlit secrets
+CORRECT_PASSWORD = st.secrets["test_password"]
 
 def check_password():
     """Returns `True` if the user had the correct password."""
@@ -36,7 +37,7 @@ def check_password():
 
 # Call the function to check authentication
 if check_password():
-    client = OpenAI(api_key="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")
+    client = OpenAI(api_key=st.secrets["openai_api_key"])
 
     # Helper function to extract text from PDF
     def extract_text_from_pdf(pdf_file):
@@ -579,6 +580,7 @@ if check_password():
 else:
     # If check_password returned False, stop the execution of the main app
     st.stop() 
+
 
 
 
